@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# written by connorka
+
 #
 # Check openssl
 if [ ! -x /usr/bin/openssl ]
