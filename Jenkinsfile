@@ -1,32 +1,14 @@
 pipeline {
-  agent {
-    node {
-      label 'master'
-    }
-
-  }
-  stages {
-    stage('Stage1') {
-      agent {
-        node {
-          label 'master'
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                sh 'echo "Hello World"'
+                sh '''
+                    ./ssl.sh google.com"
+                    ls -lah
+                '''
+            }
         }
-
-      }
-      steps {
-        echo 'Checking out'
-      }
     }
-    stage('Deploy') {
-      agent {
-        node {
-          label 'master'
-        }
-
-      }
-      steps {
-        sh 'google.com'
-      }
-    }
-  }
 }
