@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# written by connorka
+# written by connorka blabla
 
 #
 # Check openssl
