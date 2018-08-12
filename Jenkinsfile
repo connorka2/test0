@@ -25,7 +25,7 @@ pipeline {
 
       }
       steps {
-        sh 'ssl.sh google.com'
+        sh 'google.com'
       }
     }
   }
