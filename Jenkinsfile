@@ -9,16 +9,16 @@ pipeline {
     stage('Stage1') {
       agent {
         node {
-          label 'Node_agent'
+          label 'master'
         }
 
       }
       steps {
         echo 'Starting the stage'
         sh '''echo $(date)
-bash ssl.sh google.com'''
+ssl.sh google.com'''
         sh '''echo $(date)
-bash ssl.sh index.hu
+ssl.sh index.hu
 '''
         echo 'End of the stage1'
       }
