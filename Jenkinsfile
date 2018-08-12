@@ -4,10 +4,9 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'echo "Hello World"'
-                sh '''
-                    ssl.sh google.com
-                    ls -lah
-                '''
+                sh 'pwd'
+                sh 'ls -la'
+                sh './ssl.sh index.hu'
             }
         }
     }
