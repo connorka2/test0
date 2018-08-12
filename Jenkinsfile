@@ -17,15 +17,18 @@ pipeline {
         echo 'Checking out'
       }
     }
-    stage('Deploy') {
+    stage('Test') {
       agent {
         node {
           label 'master'
         }
 
       }
+      environment {
+        CI = 'true'
+      }
       steps {
-        sh 'google.com'
+        sh './jenkins/scripts/test.sh'
       }
     }
   }
