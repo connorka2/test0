@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # written by connorka blabla
-# another blabla
+# another blabla --
 # - -
 
 #
