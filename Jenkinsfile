@@ -25,5 +25,10 @@ chmod 777 ssl.log'''
         }
       }
     }
+    post {
+        always {
+            junit 'build/reports/**/*.log'
+        }
+    }
   }
 }
