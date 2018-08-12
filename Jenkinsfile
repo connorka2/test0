@@ -11,8 +11,10 @@ pipeline {
     }
     stage('Test') {
       steps {
-        sh './ssl.sh google.com'
         echo 'Test stage'
+        sh '''./ssl.sh google.com > ssl.log
+chmod 777 ssl.log'''
+        archiveArtifacts 'ssl.log'
       }
     }
   }
