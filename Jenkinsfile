@@ -31,7 +31,7 @@ chmod 777 ssl.log'''
         CI = 'true'
       }
       steps {
-        sh './jenkins/scripts/test.sh'
+        sh './test.sh'
       }
     }
   }
