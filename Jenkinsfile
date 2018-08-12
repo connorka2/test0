@@ -9,7 +9,7 @@ pipeline {
         sh './ssl.sh index.hu'
       }
     }
-    stage('Test') {
+    stage('Build2') {
       parallel {
         stage('Test') {
           steps {
@@ -25,10 +25,21 @@ chmod 777 ssl.log'''
         }
       }
     }
+    stage('Test') {
+      agent any
+      environment {
+        CI = 'true'
+      }
+      steps {
+        sh './jenkins/scripts/test.sh'
+      }
+    }
   }
   post {
     always {
       junit 'build/reports/**/*.xml'
+
     }
+
   }
 }
