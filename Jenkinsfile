@@ -10,11 +10,19 @@ pipeline {
       }
     }
     stage('Test') {
-      steps {
-        echo 'Test stage'
-        sh '''./ssl.sh google.com > ssl.log
+      parallel {
+        stage('Test') {
+          steps {
+            echo 'Test stage'
+          }
+        }
+        stage('Testing google.com') {
+          steps {
+            sh '''./ssl.sh google.com > ssl.log
 chmod 777 ssl.log'''
-        archiveArtifacts 'ssl.log'
+            archiveArtifacts 'ssl.log'
+          }
+        }
       }
     }
   }
