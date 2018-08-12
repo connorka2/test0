@@ -14,13 +14,18 @@ pipeline {
 
       }
       steps {
-        echo 'Starting the stage'
-        sh '''echo $(date)
-ssl.sh google.com'''
-        sh '''echo $(date)
-ssl.sh index.hu
-'''
-        echo 'End of the stage1'
+        echo 'Checking out'
+      }
+    }
+    stage('Deploy') {
+      agent {
+        node {
+          label 'master'
+        }
+
+      }
+      steps {
+        sh 'ssl.sh google.com'
       }
     }
   }
